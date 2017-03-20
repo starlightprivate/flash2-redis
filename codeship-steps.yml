@@ -1,0 +1,7 @@
+- service: develop_build_redis
+  type: push
+  image_name: gcr.io/flash2-staging/redis
+  image_tag: "latest"
+  registry: https://gcr.io
+  dockercfg_service: develop_gcr_dockercfg
+  tag: ^(master|develop)

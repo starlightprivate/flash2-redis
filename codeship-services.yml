@@ -1,0 +1,12 @@
+develop_build_redis:
+  build:
+    image: flash2-staging/redis
+    dockerfile_path: redis/Dockerfile
+  encrypted_env_file: deploy/develop/environment.env.encrypted
+  cached: true
+  default_cache_branch: ^(master|develop)
+
+develop_gcr_dockercfg:
+  image: codeship/gcr-dockercfg-generator
+  add_docker: true
+  encrypted_env_file: deploy/develop/google_deployment.env.encrypted
