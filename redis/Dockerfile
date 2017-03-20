@@ -1,5 +1,5 @@
 FROM redis:3.2.8
-ADD redis.conf /etc/redis.conf
+ADD redis/redis.conf /etc/redis.conf
 
 # mountable directories
 VOLUME ["/data"]
