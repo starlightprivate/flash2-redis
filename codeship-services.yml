@@ -2,7 +2,7 @@ develop_build_redis:
   build:
     image: flash2-staging/redis
     dockerfile_path: redis/Dockerfile
-  encrypted_env_file: deploy/develop/environment.env.encrypted
+  encrypted_args_file: deploy/develop/args.env.encrypted
   cached: true
   default_cache_branch: develop
 
