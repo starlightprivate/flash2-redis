@@ -8,7 +8,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # add config template
-ADD redis.conf.template /etc/redis.conf.template
+ADD redis/redis.conf.template /etc/redis.conf.template
 
 # generate config file
 RUN envsubst < /etc/redis.conf.template > /etc/redis.conf
