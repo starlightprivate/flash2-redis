@@ -1,6 +1,6 @@
 FROM redis:3.2.8
 
-ARG REDIS_PASS qwerty
+ARG REDIS_PASS
 
 # install envsubst
 RUN apt-get update \
