@@ -1,9 +1,6 @@
 FROM redis:3.2.8
 
 ARG REDIS_PASS
-RUN echo $REDIS_PASS > /etc/pass
-ENV REDIS_PASS1 qwerty
-RUN echo $REDIS_PASS > /etc/pass1
 
 # install envsubst
 RUN apt-get update \
