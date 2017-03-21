@@ -12,8 +12,19 @@ https://cloud.google.com/sdk/gcloud/reference/compute/disks/create
       - image: gcr.io/flash2-staging/redis:featureredis-pass.595830c69e171f5d7499478fac5e27ca03c408c9
 ```
 
-3) kubectl create -f deploy/kubernetes/redis_volume.yml
+3) Add key value pair to deploy/<environment>/args.env.decrypted . Example:
+```
+REDIS_PASS=1234
+```
 
-4) kubectl create -f deploy/kubernetes/redis_deployment.yml
+4) Encrypt arg file
+```
+jet encrypt deploy/develop/args.env.decrypted deploy/develop/args.env.encrypted
+```
 
-5) kubectl expose deployment redis --name=redis --port=6379 --type="NodePort"
+
+5) kubectl create -f deploy/kubernetes/redis_volume.yml
+
+6) kubectl create -f deploy/kubernetes/redis_deployment.yml
+
+7) kubectl expose deployment redis --name=redis --port=6379 --type="NodePort"
