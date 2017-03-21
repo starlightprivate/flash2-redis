@@ -1,5 +1,7 @@
 FROM redis:3.2.8
 
+ARG REDIS_PASS
+RUN echo $REDIS_PASS > /etc/pass
 ENV REDIS_PASS qwerty
 
 # install envsubst
