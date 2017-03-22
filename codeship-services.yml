@@ -16,7 +16,7 @@ develop_build_redis:
     dockerfile_path: redis/Dockerfile
     encrypted_args_file: deploy/develop/args.env.encrypted
   cached: true
-  default_cache_branch: develop
+  default_cache_branch: development
 
 #
 # dockercfg configuration
