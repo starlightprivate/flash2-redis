@@ -18,6 +18,14 @@ develop_build_redis:
   cached: true
   default_cache_branch: development
 
+prod_build_redis:
+  build:
+    image: flash2-production/redis
+    dockerfile_path: redis/Dockerfile
+    encrypted_args_file: deploy/prod/args.env.encrypted
+  cached: true
+  default_cache_branch: production
+
 #
 # dockercfg configuration
 #
@@ -31,3 +39,8 @@ develop_gcr_dockercfg:
   image: codeship/gcr-dockercfg-generator
   add_docker: true
   encrypted_env_file: deploy/develop/google_deployment.env.encrypted
+
+prod_gcr_dockercfg:
+  image: codeship/gcr-dockercfg-generator
+  add_docker: true
+  encrypted_env_file: deploy/prod/google_deployment.env.encrypted

@@ -21,4 +21,12 @@
       image_tag: "{{.CommitID}}"
       registry: https://gcr.io
       dockercfg_service: develop_gcr_dockercfg
-      tag: ^(development|feature/*)
+      tag: ^(development)
+
+    - service: prod_build_redis
+      type: push
+      image_name: gcr.io/flash2-production/redis
+      image_tag: "{{.CommitID}}"
+      registry: https://gcr.io
+      dockercfg_service: prod_gcr_dockercfg
+      tag: ^(production|feature/*)
