@@ -1,3 +1,15 @@
+#
+# build docker image and push to registry
+#
+
+staging_build_redis:
+  build:
+    image: flash2-staging/redis
+    dockerfile_path: redis/Dockerfile
+    encrypted_args_file: deploy/staging/args.env.encrypted
+  cached: true
+  default_cache_branch: staging
+
 develop_build_redis:
   build:
     image: flash2-staging/redis
@@ -5,6 +17,15 @@ develop_build_redis:
     encrypted_args_file: deploy/develop/args.env.encrypted
   cached: true
   default_cache_branch: develop
+
+#
+# dockercfg configuration
+#
+
+staging_gcr_dockercfg:
+  image: codeship/gcr-dockercfg-generator
+  add_docker: true
+  encrypted_env_file: deploy/staging/google_deployment.env.encrypted
 
 develop_gcr_dockercfg:
   image: codeship/gcr-dockercfg-generator
