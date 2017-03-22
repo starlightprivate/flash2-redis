@@ -29,4 +29,4 @@
       image_tag: "{{.CommitID}}"
       registry: https://gcr.io
       dockercfg_service: prod_gcr_dockercfg
-      tag: ^(production|feature/*)
+      tag: ^(production)
