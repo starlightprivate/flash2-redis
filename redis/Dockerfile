@@ -1,5 +1,17 @@
 FROM redis:3.2.8
-ADD redis/redis.conf /etc/redis.conf
+
+ARG REDIS_PASS
+
+# install envsubst
+RUN apt-get update \
+  && apt-get install gettext-base -y \
+  && rm -rf /var/lib/apt/lists/*
+
+# add config template
+ADD redis/redis.conf.template /etc/redis.conf.template
+
+# generate config file
+RUN envsubst < /etc/redis.conf.template > /etc/redis.conf
 
 # mountable directories
 VOLUME ["/data"]
